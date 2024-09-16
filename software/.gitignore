@@ -1,3 +1,7 @@
 /build*
 
+/.cache
+/.zed
+/.vscode
+
 # TODO: add .cache
