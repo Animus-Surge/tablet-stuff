@@ -6,15 +6,21 @@ pda scene_manager.h
 Scene systems
 */
 
+#include <functional>
+#include <map>
 #include <vector>
 
-struct scene {
-    std::vector<void*> entities;
 
-    void (*init)();
-    void (*update)();
-    void (*draw)();
-    void (*exit)();
+struct scene {
+    //TODO: components
+
+    std::function<void()> initfn;
+    std::function<void()> renderfn;
 };
 
-void scene_manager_init();
+extern struct scene current_scene;
+
+void set_scene(struct scene new_scene);
+
+void animate_scene_in();
+void animate_scene_out();

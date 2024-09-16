@@ -20,9 +20,11 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_definitions(${PROJECT_NAME} PRIVATE PDA_DEBUG)
 endif()
 
-# External libraries
+# External libraries (TODO: toolchain paths)
 find_package(SDL2 REQUIRED)
 find_package(SDL2_ttf REQUIRED)
+find_package(SDL2_image REQUIRED)
+find_package(X11 REQUIRED)
 
 include_directories(include ${SDL2_INCLUDE_DIRS} ${SDL2_ttf_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_ttf_LIBRARIES})
