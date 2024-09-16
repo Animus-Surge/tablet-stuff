@@ -1,0 +1,18 @@
+# HOME SCENE
+
+animate-in:
+animate-out:
+
+colors:
+  color_bg: 0x000010
+  color_white: 0xffffff
+  color_black: 0x000000
+
+  color_ok_1: 0x0
+
+elements:
+  0:
+    type: lines
+    points:
+      0: 0,0
+    color: color_white
