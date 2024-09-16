@@ -54,6 +54,18 @@ void fill_rect(SDL_Rect rect) {
     SDL_RenderFillRect(renderer, &rect);
 }
 
+void fill_circle (int x, int y, int r) {
+    for (int i = 0; i < r; i++) {
+        int h = (int)sqrt(r * r - i * i);
+        SDL_RenderDrawLine(renderer, x - h, y + i, x + h, y + i);
+        SDL_RenderDrawLine(renderer, x - h, y - i, x + h, y - i);
+    }
+}
+
+void fill_circle(SDL_Point pos, int r) {
+    fill_circle(pos.x, pos.y, r);
+}
+
 void fill_polygon(SDL_Point points[], int num_points) {
     //Draw outline
     render_polygon(points, num_points, 1);

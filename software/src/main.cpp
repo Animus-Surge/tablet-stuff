@@ -2,5 +2,6 @@
 #include "app.h"
 
 int main() {
+    printf("Hello, World!\n");
     init();
 }
