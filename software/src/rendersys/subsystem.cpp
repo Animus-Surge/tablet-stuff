@@ -4,6 +4,7 @@
 
 #include "scene_manager.h"
 #include <SDL_rect.h>
+#include <SDL_scancode.h>
 
 SDL_Color current_color = {0, 0, 0, 255};
 SDL_Renderer* renderer = NULL;
@@ -34,18 +35,12 @@ void init(int width, int height, const char *title) {
     }
 }
 
-void obj_init() {
-
-}
-
 void run() {
-
-
     SDL_Event e;
     bool quit = false;
     while (!quit) {
         while (SDL_PollEvent(&e) != 0) {
-            if (e.type == SDL_QUIT) {
+            if (e.type == SDL_QUIT || e.key.keysym.scancode == SDL_SCANCODE_ESCAPE) {
                 quit = true;
             }
         }
@@ -57,6 +52,12 @@ void run() {
         //Draw - TODO: scenes
         set_render_color(SDL_Color{255, 0, 0, 255});
 
+        SDL_Rect rect = {
+            20, 20, 100, 100
+        };
+
+        SDL_RenderFillRect(renderer, &rect);
+
         SDL_RenderPresent(renderer);
 
         //Clamp to 60 FPS
@@ -64,4 +65,6 @@ void run() {
     }
 }
 
-void shutdown() {}
+void shutdown() {
+    //Deinit everything
+}

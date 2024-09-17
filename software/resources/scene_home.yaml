@@ -1,18 +1,24 @@
 # HOME SCENE
 
-animate-in:
-animate-out:
+identifier: scene_home
+name: Home Scene
 
-colors:
-  color_bg: 0x000010
-  color_white: 0xffffff
-  color_black: 0x000000
-
-  color_ok_1: 0x0
-
-elements:
-  0:
-    type: lines
-    points:
-      0: 0,0
-    color: color_white
+objects:
+-
+  name: Obj1
+  components:
+    -
+      type: ShapeComponent
+      data:
+        shape: rect
+        position: [100, 100]
+        size: [100, 100]
+        color: [255, 0, 0]
+        fill: false
+    -
+      type: TextComponent
+      data:
+        text: "Hello World"
+        position: [100, 100]
+        size: 20
+        color: [0, 0, 0]
