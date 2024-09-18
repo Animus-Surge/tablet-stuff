@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.10)
 # Make clangd work with cmake
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/scripts/cmake/")
+
 project(pda_tablet VERSION 1.1)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -20,11 +22,16 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_definitions(${PROJECT_NAME} PRIVATE PDA_DEBUG)
 endif()
 
+# Check imported libraries to see if they've been built
+
+
 # External libraries (TODO: toolchain paths)
 find_package(SDL2 REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 find_package(SDL2_image REQUIRED)
 find_package(X11 REQUIRED)
+find_package(jsoncpp REQUIRED)
 
 include_directories(include ${SDL2_INCLUDE_DIRS} ${SDL2_ttf_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_ttf_LIBRARIES})
+

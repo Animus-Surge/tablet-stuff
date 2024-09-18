@@ -52,7 +52,7 @@ inline void set_scene(Scene scene) {
     current_scene = scene;
 }
 
-Scene load_scene(const char* path);
-inline Scene create_empty_scene() {
-    return Scene();
+Scene* load_scene(const char* path);
+inline Scene* create_empty_scene() {
+    return new Scene();
 }
