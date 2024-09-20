@@ -2,6 +2,6 @@
 #include "app.h"
 
 int main() {
-    printf("Hello, World!\n");
+    setvbuf(stdout, NULL, _IOLBF, 0);
     init();
 }

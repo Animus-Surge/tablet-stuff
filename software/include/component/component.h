@@ -17,10 +17,10 @@ protected:
     bool active = true;
 public:
     BaseComponent();
-    ~BaseComponent();
+    virtual ~BaseComponent() = default;
 
-    void update();
-    void render(SDL_Point posOffset = {0, 0});
+    virtual void update() = 0;
+    virtual void render(SDL_Point posOffset = {0, 0}) = 0;
 
     void setActive(bool active) {
         this->active = active;
@@ -63,20 +63,20 @@ public:
     //Create a line
     ShapeComponent(SDL_Color color, SDL_Point p1, SDL_Point p2, int thickness = 1);
     //Create a polyline
-    ShapeComponent(SDL_Color color, SDL_Point points[], int num_points, int thickness = 1);
+    ShapeComponent(SDL_Color color, SDL_Point points[], int num_points, int thickness);
     //Create a circle
-    ShapeComponent(SDL_Color color, SDL_Point center, int radius, bool fill = false, int thickness = 1);
+    ShapeComponent(SDL_Color color, SDL_Point center, int radius, bool fill, int thickness);
     //Create an ellipse
-    ShapeComponent(SDL_Color color, SDL_Point center, int radiusX, int radiusY, bool fill = false, int thickness = 1);
+    ShapeComponent(SDL_Color color, SDL_Point center, int radiusX, int radiusY, bool fill, int thickness);
     //Create a rectangle
-    ShapeComponent(SDL_Color color, SDL_Rect rect, bool fill = false, int thickness = 1);
+    ShapeComponent(SDL_Color color, SDL_Rect rect, bool fill, int thickness);
     //Create a polygon
-    ShapeComponent(SDL_Color color, SDL_Point points[], int num_points, bool fill = false, int thickness = 1);
+    ShapeComponent(SDL_Color color, SDL_Point points[], int num_points, bool fill, int thickness);
 
-    ~ShapeComponent();
+    ~ShapeComponent() override;
 
-    void update() {}
-    void render(SDL_Point posOffset = {0, 0});
+    void update() override {}
+    void render(SDL_Point posOffset = {0, 0}) override;
 };
 
 //Event/interaction components
@@ -86,6 +86,10 @@ public:
 // - Textbox
 // - Checkbox
 // - Radio button
+
+class WidgetComponent : public BaseComponent, public Colorfield {
+
+};
 
 //Text components defined in modules/ttf_mod.h
 

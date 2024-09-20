@@ -33,22 +33,22 @@ public:
         objects.clear();
     }
 
-    void update_objects() {
-        for (auto object : objects) {
-
+    void update() {
+        for (Object* object : objects) {
+            object->update();
         }
     }
 
-    void draw_objects() {
-        for (auto object : objects) {
+    void render() {
+        for (Object* object : objects) {
             object->render();
         }
     }
 };
 
-extern Scene current_scene;
+extern Scene* current_scene;
 
-inline void set_scene(Scene scene) {
+inline void set_scene(Scene* scene) {
     current_scene = scene;
 }
 

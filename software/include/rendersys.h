@@ -37,6 +37,7 @@ void render_circle(SDL_Point, int, int);
 void render_rect(int, int, int, int, int);
 void render_rect(SDL_Rect, int);
 void render_polygon(SDL_Point[], int, int);
+void render_polyline(SDL_Point[], int, int);
 
 //Fill rendering
 void fill_rect(int, int, int, int);

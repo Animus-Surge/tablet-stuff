@@ -1,6 +1,10 @@
 #include "rendersys.h"
 #include <SDL_render.h>
 
+#include <cmath>
+
+#define DEGREE_STEP 1
+
 void render_point(int x, int y) {
     SDL_RenderDrawPoint(renderer, x, y);
 }
@@ -9,22 +13,40 @@ void render_point(SDL_Point point) {
 }
 
 void render_line(int x1, int y1, int x2, int y2, int thickness) {
-    for (int i = 0; i < thickness; i++) {
-        SDL_RenderDrawLine(renderer, x1, y1 + i, x2, y2 + i);
-    }
+    //Ignore thickness for now
+    SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
+
+#ifdef RENDER_LINE_THICKNESS
+    int half_thickness = floor(thickness / 2);
+
+    //First, slope
+    float slope = (float)(y2 - y1) / (x2 - x1);
+    float perp_slope = -1 / slope;
+
+    //Now we need to get the four points along the perpendicular slope
+
+
+#endif
 }
 void render_line(SDL_Point p1, SDL_Point p2, int thickness) {
     render_line(p1.x, p1.y, p2.x, p2.y, thickness);
 }
 
 void render_circle(int x, int y, int r, int thickness) {
-    for (int i = 0; i < thickness; i++) {
-        for (int j = 0; j < r; j++) {
-            int h = (int)sqrt(r * r - j * j);
-            SDL_RenderDrawLine(renderer, x - h + i, y + j, x + h + i, y + j);
-            SDL_RenderDrawLine(renderer, x - h + i, y - j, x + h + i, y - j);
-        }
+    int rd = 0;
+
+    while (rd < 360) {
+        int x1 = x + r * cos(rd * M_PI / 180);
+        int y1 = y + r * sin(rd * M_PI / 180);
+        rd += DEGREE_STEP;
+        int x2 = x + r * cos(rd * M_PI / 180);
+        int y2 = y + r * sin(rd * M_PI / 180);
+        render_line(x1, y1, x2, y2, thickness);
     }
+}
+
+void render_circle(SDL_Point point, int r, int thickness) {
+    render_circle(point.x, point.y, r, thickness);
 }
 
 void render_rect(int x, int y, int w, int h, int thickness) {
@@ -44,6 +66,12 @@ void render_polygon(SDL_Point points[], int num_points, int thickness) {
     render_line(points[num_points - 1], points[0], thickness);
 }
 
+void render_polyline(SDL_Point points[], int num_points, int thickness) {
+    for (int i = 0; i < num_points - 1; i++) {
+        render_line(points[i], points[i + 1], thickness);
+    }
+}
+
 
 //Fill functions
 void fill_rect(int x, int y, int w, int h) {
@@ -55,11 +83,7 @@ void fill_rect(SDL_Rect rect) {
 }
 
 void fill_circle (int x, int y, int r) {
-    for (int i = 0; i < r; i++) {
-        int h = (int)sqrt(r * r - i * i);
-        SDL_RenderDrawLine(renderer, x - h, y + i, x + h, y + i);
-        SDL_RenderDrawLine(renderer, x - h, y - i, x + h, y - i);
-    }
+    //TODO
 }
 
 void fill_circle(SDL_Point pos, int r) {

@@ -16,13 +16,13 @@ Object definitions
 class Object {
 protected:
     SDL_Point position;
-    std::vector<BaseComponent> components;
+    std::vector<BaseComponent*> components;
     const char* name;
 public:
     Object(const char* name, std::function<void()> initfn);
     ~Object();
 
-    void addComponent(BaseComponent component) {
+    void addComponent(BaseComponent* component) {
         components.push_back(component);
     }
     void removeComponent(int index) {

@@ -3,19 +3,16 @@
 #include <cstdio>
 #include <fstream>
 
-Scene load_scne(const char* path)
+Scene* current_scene = NULL;
+
+Scene* load_scne(const char* path)
 {
     std::ifstream file(path);
     if (!file.is_open())
     {
         printf("Failed to open %s", path);
-        return Scene();
+        return NULL;
     }
 
-    Scene scene;
-    std::string line;
-
-
-
-    return Scene();
+    return NULL;
 }
