@@ -42,10 +42,6 @@ void run() {
     //Temp scene
     Scene* scene = new Scene();
     Object* obj = new Object("Test", []() {});
-    obj->addComponent(new ShapeComponent(SDL_Color{255, 0, 0, 255}, SDL_Point{10, 10}, 1));
-    obj->addComponent(new ShapeComponent({0, 255, 0, 255}, {20, 10}, {110, 100}, 4));
-    obj->addComponent(new ShapeComponent({0, 0, 255, 255}, {120, 10, 90, 90}, false, 4));
-    obj->addComponent(new ShapeComponent({255, 0, 255, 255}, {512, 300}, 200, false, 1));
     scene->add_object(obj);
     current_scene = scene;
 
@@ -69,9 +65,11 @@ void run() {
             }
             //Mouse
             else if (e.type == SDL_MOUSEBUTTONDOWN) {
-
+                SDL_Point mouse_pos = {e.button.x, e.button.y};
+                set_click_pos(&mouse_pos);
+                set_mousestate(e.button.button, true);
             } else if (e.type == SDL_MOUSEBUTTONUP) {
-
+                set_mousestate(e.button.button, false);
             } else if (e.type == SDL_MOUSEMOTION) {
                 SDL_Point mouse_pos = {e.motion.x, e.motion.y};
                 set_mouse_pos(&mouse_pos);
@@ -84,9 +82,17 @@ void run() {
         SDL_RenderClear(renderer);
 
 
-            //Draw common rendering components
-            current_scene->render();
-            // current_scene->update();
+        //Draw common rendering components
+        if(click_pos != NULL) {
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+            SDL_RenderDrawPoint(renderer, click_pos->x, click_pos->y);
+        }
+
+        current_scene->render();
+        current_scene->update();
+
+        //Design testing
+        set_render_color({255, 255, 255, 255});
 
 
         SDL_RenderPresent(renderer);
