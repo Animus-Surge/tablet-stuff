@@ -1,10 +1,6 @@
-#include "component/component.h"
 #include "eventsys.h"
-#include "object.h"
 #include "rendersys.h"
 
-
-#include "scene_manager.h"
 #include <SDL_events.h>
 #include <SDL_rect.h>
 #include <SDL_scancode.h>
@@ -39,11 +35,6 @@ void init(int width, int height, const char *title) {
 }
 
 void run() {
-    //Temp scene
-    Scene* scene = new Scene();
-    Object* obj = new Object("Test", []() {});
-    scene->add_object(obj);
-    current_scene = scene;
 
     SDL_Event e;
     bool quit = false;
@@ -81,15 +72,21 @@ void run() {
         set_render_color(SDL_Color{0, 0, 0, 0});
         SDL_RenderClear(renderer);
 
+        set_render_color({255, 255, 255, 255});
 
-        //Draw common rendering components
-        if(click_pos != NULL) {
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-            SDL_RenderDrawPoint(renderer, click_pos->x, click_pos->y);
-        }
+        SDL_Point _sidebar_points[] = {
+            {100, 0},
+            {100, 200},
+            {125, 225},
+            {125, 375},
+            {100, 400},
+            {100, 600},
+        };
+        int num_sidebar_points = sizeof(_sidebar_points) / sizeof(SDL_Point);
+        render_polyline(_sidebar_points, num_sidebar_points, 1);
 
-        current_scene->render();
-        current_scene->update();
+        render_rect(10, 10, 80, 80, 1);
+        render_rect(10, 100, 80, 80, 1);
 
         //Design testing
         set_render_color({255, 255, 255, 255});
@@ -104,7 +101,6 @@ void run() {
 
 void shutdown() {
     //Deinit everything
-    delete current_scene;
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();

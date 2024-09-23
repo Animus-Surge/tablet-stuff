@@ -30,5 +30,7 @@ bool is_mousedown(uint8_t);
 void set_keystate(SDL_Scancode, bool);
 bool is_keydown(SDL_Scancode);
 
+bool point_in_rect(SDL_Point, SDL_Rect);
+bool point_in_polygon(SDL_Point, SDL_Point*, int);
 
 //
