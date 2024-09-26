@@ -1,25 +1,40 @@
+ENTRY(_start)
+
 SECTIONS
 {
-    . = 0x80000;     /* Kernel load address for AArch64 */
-    .text BLOCK(512) : ALIGN(512) { KEEP(*(.text.boot)) *(.text .text.* .gnu.linkonce.t*) }
-    .rodata BLOCK(512) : ALIGN(512) { *(.rodata .rodata.* .gnu.linkonce.r*) }
-    PROVIDE(_data = .);
-    .data BLOCK(512) : ALIGN(512) { *(.data .data.* .gnu.linkonce.d*) }
-    .bss BLOCK(512) (NOLOAD) : ALIGN(512) {
-        . = ALIGN(16);
-        __bss_start = .;
-        *(.bss .bss.*)
-        *(COMMON)
-        __bss_end = .;
+    . = 0x80000;
+
+    __start = .;
+    __text_start = .;
+
+    .text : {
+        KEEP(*(.text.boot))
+        *(.text)
     }
+    . = ALIGN(4096);
+    __text_end = .;
 
-    /DISCARD/ : { *(.comment) *(.gnu*) *(.note*) *(.eh_frame*) }
-    _end = .;
-
-    .pad BLOCK(512) : ALIGN(512) {
-        BYTE(0);
-        . = ALIGN(512);
+    __rodata_start = .;
+    .rodata : {
+        *(.rodata)
     }
+    . = ALIGN(4096);
+    __rodata_end = .;
 
+    __data_start = .;
+    .data : {
+        *(.data)
+    }
+    . = ALIGN(4096);
+    __data_end = .;
+
+    __bss_start = .;
+    .bss : {
+        bss = .;
+        *(.bss)
+    }
+    . = ALIGN(4096);
+    __bss_end = .;
+    __bss_size = __bss_end - __bss_start;
+    __end = .;
 }
-__bss_size = (__bss_end - __bss_start)>>3;
