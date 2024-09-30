@@ -1,3 +1,3 @@
-# Tablet
+# PDA
 
-A tablet project
+v0.1.2

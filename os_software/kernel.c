@@ -45,7 +45,7 @@ enum
     GPPUDCLK0 = (GPIO_BASE + 0x98),
 
     // The base address for UART.
-    UART0_BASE = (GPIO_BASE + 0x1000), // for raspi4 0xFE201000, raspi2 & 3 0x3F201000, and 0x20201000 for raspi1
+    UART0_BASE = (GPIO_BASE + 0x5000), // for raspi4 0xFE201000, raspi2 & 3 0x3F201000, and 0x20201000 for raspi1
 
     // The offsets for reach register for the UART.
     UART0_DR     = (UART0_BASE + 0x00),
@@ -84,7 +84,7 @@ void uart_init(int raspi)
 	mmio_init(raspi);
 
 	// Disable UART0.
-	mmio_write(UART0_CR, 0x00000000);
+	mmio_write(UART0_CR - 0x4000, 0x00000000);
 	// Setup the GPIO pin 14 && 15.
 
 	// Disable pull up/down for all GPIO pins & delay for 150 cycles.
@@ -156,7 +156,7 @@ void uart_puts(const char* str)
 
 void kmain(uint64_t dtb_ptr32, uint64_t x1, uint64_t x2, uint64_t x3)
 {
-    uart_init(4);
+    uart_init(3);
     uart_puts("Hello, kernel World!\r\n");
 
     while (1) {

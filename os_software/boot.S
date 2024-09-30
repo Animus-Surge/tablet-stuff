@@ -4,6 +4,19 @@
 
 .org 0x80000
 
+PUT32:
+    str w1, [x0]
+    ret
+
+GET32:
+    ldr w0, [x0]
+    ret
+
+DELAY:
+    subs x0, x0, #1
+    bne DELAY
+    ret
+
 _start:
     ldr x5, =_start
     mov sp, x5
