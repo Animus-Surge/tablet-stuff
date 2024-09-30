@@ -1,5 +1,7 @@
 #include "rendersys.h"
 
+#include "algo.h"
+
 //Colors
 
 void set_render_color(int r, int g, int b, int a) {
@@ -95,12 +97,27 @@ void draw_circle(SDL_Point center, int r) {
 }
 
 //Filled shapes
-void fill_polygon(SDL_Point *, int) {
+void fill_polygon(SDL_Point * points, int num) {
+    draw_polygon(points, num);
 
+    return; //TODO: Implement fill_polygon
+
+    // //Scanline fill algorithm
+    // int miny = points[0].y;
+    // int maxy = points[0].y;
+    // for (int i = 1; i < num; i++) {
+    //     miny = min(miny, points[i].y);
+    //     maxy = max(maxy, points[i].y);
+    // }
+
+    // for (int y = miny; y <= maxy; y++) {
+
+    // }
 }
 void fill_rect(int x, int y, int w, int h) {
-
+    SDL_Rect r = {x, y, w, h};
+    fill_rect(r);
 }
 void fill_rect(SDL_Rect rect) {
-
+    SDL_RenderFillRect(renderer, &rect);
 }

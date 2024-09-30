@@ -8,9 +8,6 @@ Render subsystem interface
 
 #include <SDL2/SDL.h>
 
-#define DEBUG_SCREEN_WIDTH 1024
-#define DEBUG_SCREEN_HEIGHT 600
-
 extern SDL_Renderer* renderer;
 extern SDL_Window* window;
 
@@ -65,3 +62,4 @@ void fill_ellipse(SDL_Point point, int rx, int ry);
 // Rendering system
 
 void init_render();
+void shutdown();
