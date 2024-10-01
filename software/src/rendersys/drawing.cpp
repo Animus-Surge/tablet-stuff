@@ -84,6 +84,27 @@ void draw_ellipse(int x, int y, int rx, int ry) {
             p += ry2 + px - py;
         }
     }
+
+    p = ry2 * (dx + 0.5) * (dx + 0.5) + rx2 * (dy - 1) * (dy - 1) - rx2 * ry2;
+    while (dy > 0) {
+        draw_point(x + dx, y + dy);
+        draw_point(x - dx, y + dy);
+        draw_point(x + dx, y - dy);
+        draw_point(x - dx, y - dy);
+
+        if (p > 0) {
+            dy--;
+            py -= 2 * rx2;
+            p += rx2 - py;
+        }
+        else {
+            dy--;
+            dx++;
+            px += 2 * ry2;
+            py -= 2 * rx2;
+            p += rx2 - py + px;
+        }
+    }
 }
 void draw_ellipse(SDL_Point center, int rx, int ry) {
     draw_ellipse(center.x, center.y, rx, ry);
@@ -100,19 +121,15 @@ void draw_circle(SDL_Point center, int r) {
 void fill_polygon(SDL_Point * points, int num) {
     draw_polygon(points, num);
 
-    return; //TODO: Implement fill_polygon
+    int miny = points[0].y;
+    int maxy = points[0].y;
+    for (int i = 1; i < num; i++) {
+        miny = min(miny, points[i].y);
+        maxy = max(maxy, points[i].y);
+    }
 
-    // //Scanline fill algorithm
-    // int miny = points[0].y;
-    // int maxy = points[0].y;
-    // for (int i = 1; i < num; i++) {
-    //     miny = min(miny, points[i].y);
-    //     maxy = max(maxy, points[i].y);
-    // }
+    //Scanline fill
 
-    // for (int y = miny; y <= maxy; y++) {
-
-    // }
 }
 void fill_rect(int x, int y, int w, int h) {
     SDL_Rect r = {x, y, w, h};

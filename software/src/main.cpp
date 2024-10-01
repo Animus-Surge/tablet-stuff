@@ -14,7 +14,7 @@ int main() {
         while(SDL_PollEvent(&event)) {
             switch(event.type) {
                 case SDL_QUIT:
-                    break;
+                    return 0;
                 case SDL_KEYDOWN:
                     if(event.key.keysym.sym == SDLK_ESCAPE) {
                         return 0;
@@ -28,27 +28,39 @@ int main() {
 
         set_render_color(255, 255, 255, 0);
 
-        SDL_Point sidebar_poly[] = {
-            {100, 0},
-            {100, 200},
-            {50, 150},
-            {0, 150},
-            {50, 150},
-            {100, 200},
-            {135, 235},
-            {135, 365},
-            {50, 450},
-            {50, 500},
-            {0, 500},
-            {175, 500},
-            {200, 525},
-            {200, 600}
+        SDL_Point test_poly[] = {
+            {10, 200},
+            {30, 220},
+            {30, 320},
+            {10, 340}
         };
-        int sidebar_poly_len = sizeof(sidebar_poly) / sizeof(sidebar_poly[0]);
+        int test_poly_len = sizeof(test_poly) / sizeof(test_poly[0]);
 
-        draw_polyline(sidebar_poly, sidebar_poly_len);
+        SDL_Point test_poly2[] = {
+            {40, 200},
+            {60, 220},
+            {60, 320},
+            {40, 340}
+        };
+        int test_poly2_len = sizeof(test_poly2) / sizeof(test_poly2[0]);
+
+        //Test drawing
+        draw_point(10, 10);
+
+        draw_line(20, 10, 100, 90);
+
+        draw_rect(110, 10, 80, 80);
+
+        draw_polyline(test_poly, test_poly_len);
+
+        draw_circle(260, 50, 40);
+
+        draw_ellipse(360, 50, 50, 30);
+
+        fill_polygon(test_poly2, test_poly2_len);
 
         SDL_RenderPresent(renderer);
+
 
     }
 
