@@ -9,15 +9,19 @@ int main() {
 
     init_render();
 
-    while(1) {
+    int running = 1;
+
+    while(running) {
         SDL_Event event;
         while(SDL_PollEvent(&event)) {
             switch(event.type) {
                 case SDL_QUIT:
-                    return 0;
+                    running = 0;
+                    break;
                 case SDL_KEYDOWN:
                     if(event.key.keysym.sym == SDLK_ESCAPE) {
-                        return 0;
+                        running = 0;
+                        break;
                     }
                     break;
             }
