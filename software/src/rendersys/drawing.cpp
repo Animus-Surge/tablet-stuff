@@ -129,7 +129,7 @@ void fill_polygon(SDL_Point * points, int num) {
     }
 
     //Scanline fill
-
+    //TODO
 }
 void fill_rect(int x, int y, int w, int h) {
     SDL_Rect r = {x, y, w, h};
