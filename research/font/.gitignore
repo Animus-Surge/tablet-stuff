@@ -1,0 +1,7 @@
+/.cache
+/.zed
+/.vscode
+
+/build
+
+*.log

@@ -25,15 +25,15 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.4890207"
-     inkscape:cx="726.65207"
-     inkscape:cy="68.501397"
+     inkscape:zoom="1.0528966"
+     inkscape:cx="445.43784"
+     inkscape:cy="316.27036"
      inkscape:window-width="1920"
      inkscape:window-height="1127"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g3989" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs2">
     <linearGradient
@@ -128,10 +128,10 @@
          x="25.25"
          y="12.0625" />
       <rect
-         style="fill:#b5dbe0;fill-opacity:1;stroke-width:0.174183"
+         style="fill:#b5dbe0;fill-opacity:1;stroke-width:0.22182"
          id="rect4283"
          width="1"
-         height="46.28186"
+         height="75.058487"
          x="20.593147"
          y="83.617645" />
       <rect
@@ -171,6 +171,32 @@
          x="73.688156"
          y="37.565048"
          transform="rotate(45)" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.128018"
+         id="rect1149"
+         width="25"
+         height="1"
+         x="166.00281"
+         y="-170.04939"
+         transform="rotate(45)" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.106371"
+         id="rect1151"
+         width="17.260279"
+         height="1"
+         x="254.59537"
+         y="14.523407" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke-width:0.264583"
+         x="245.69984"
+         y="3.8225658"
+         id="text1207"><tspan
+           sodipodi:role="line"
+           id="tspan1205"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+           x="245.69984"
+           y="3.8225658">SYS-NF-00</tspan></text>
     </g>
     <g
        id="g4473"
@@ -178,355 +204,28 @@
        transform="translate(5.5323011,0.37703818)">
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
-         x="203.42447"
-         y="11.950344"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="201.02786"
+         y="12.587636"
          id="text4404"
          inkscape:label="time_label"><tspan
            sodipodi:role="line"
-           style="stroke-width:0.264583"
-           x="203.42447"
-           y="11.950344"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+           x="201.02786"
+           y="12.587636"
            id="tspan4410">00:00:00</tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
-         x="195.37126"
-         y="4.8441834"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="196.23724"
+         y="5.467824"
          id="text4416"
          inkscape:label="date_label"><tspan
            sodipodi:role="line"
            id="tspan4414"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
-           x="195.37126"
-           y="4.8441834">00/00/00</tspan></text>
-    </g>
-    <g
-       id="g4487"
-       inkscape:label="group_bat_status"
-       transform="translate(-0.46480465,-8.5714493)">
-      <rect
-         style="fill:#ff5555;fill-opacity:1;stroke-width:0.287331"
-         id="rect4475"
-         width="10.352665"
-         height="46.258614"
-         x="1.9648046"
-         y="23.071449"
-         inkscape:label="border" />
-      <rect
-         style="fill:#1a1a1a;fill-opacity:1;stroke-width:0.26112"
-         id="rect4493"
-         width="8.8426561"
-         height="44.727863"
-         x="2.7198093"
-         y="23.836824"
-         inkscape:label="bg_fill" />
-      <g
-         id="g4633"
-         inkscape:label="measure_lines"
-         style="fill:#ffd5d5;fill-opacity:1">
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4553"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="28.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4569"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="33.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4571"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="38.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4573"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="43.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4575"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="48.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4577"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="53.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4579"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="58.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4581"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="63.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4601"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="28.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4603"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="33.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4605"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="38.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4607"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="43.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4609"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="48.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4611"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="53.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4613"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="58.5" />
-        <rect
-           style="fill:#ffd5d5;fill-opacity:1;stroke-width:0.264507"
-           id="rect4615"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="63.5" />
-      </g>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ff5555;fill-opacity:1;stroke-width:0.264583"
-         x="-59.390236"
-         y="8.4400091"
-         id="text4637"
-         transform="rotate(-90)"
-         inkscape:label="label"><tspan
-           sodipodi:role="line"
-           id="tspan4635"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ff5555;stroke-width:0.264583"
-           x="-59.390236"
-           y="8.4400091">NO BATTERY</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
-         x="-7.8597274"
-         y="71.243088"
-         id="text4853"
-         transform="translate(12.099273)"
-         inkscape:label="title"><tspan
-           sodipodi:role="line"
-           id="tspan4851"
-           style="stroke-width:0.264583"
-           x="-7.8597274"
-           y="71.243088">BAT</tspan></text>
-    </g>
-    <g
-       id="g4681"
-       inkscape:label="group_net_status"
-       transform="translate(11.506028,-8.5714493)">
-      <rect
-         style="fill:#666666;fill-opacity:1;stroke-width:0.287331"
-         id="rect4639"
-         width="10.352665"
-         height="46.258614"
-         x="1.9648046"
-         y="23.071449"
-         inkscape:label="border" />
-      <rect
-         style="fill:#1a1a1a;fill-opacity:1;stroke-width:0.26112"
-         id="rect4641"
-         width="8.8426561"
-         height="44.727863"
-         x="2.7198093"
-         y="23.836824"
-         inkscape:label="bg_fill" />
-      <g
-         id="g4675"
-         inkscape:label="measure_lines"
-         style="fill:#ffffff;fill-opacity:1">
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4643"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="28.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4645"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="33.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4647"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="38.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4649"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="43.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4651"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="48.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4653"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="53.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4655"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="58.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4657"
-           width="2"
-           height="0.5"
-           x="2.7198093"
-           y="63.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4659"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="28.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4661"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="33.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4663"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="38.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4665"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="43.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4667"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="48.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4669"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="53.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4671"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="58.5" />
-        <rect
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264507"
-           id="rect4673"
-           width="2"
-           height="0.5"
-           x="9.5620003"
-           y="63.5" />
-      </g>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#808080;fill-opacity:1;stroke-width:0.264583"
-         x="-66.269409"
-         y="8.4400091"
-         id="text4679"
-         transform="rotate(-90)"
-         inkscape:label="label"><tspan
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#808080;stroke-width:0.264583"
-           x="-66.269409"
-           y="8.4400091"
-           id="tspan4839">NETWORK OFFLINE</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
-         x="4.3806562"
-         y="71.24485"
-         id="text4857"
-         inkscape:label="title"><tspan
-           sodipodi:role="line"
-           id="tspan4855"
-           style="stroke-width:0.264583"
-           x="4.3806562"
-           y="71.24485">NET</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+           x="196.23724"
+           y="5.467824">00-00-00</tspan></text>
     </g>
     <text
        xml:space="preserve"
@@ -535,27 +234,27 @@
        y="123.27998"
        id="text7241"><tspan
          sodipodi:role="line"
-         id="tspan7243"></tspan></text>
+         id="tspan7243" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
        x="113.14039"
        y="114.8812"
        id="text7247"><tspan
          sodipodi:role="line"
          id="tspan7245"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555993px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
          x="113.14039"
          y="114.8812">USS LIGHTWAVE - NX-108000</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
        x="100.15426"
        y="124.72116"
        id="text7259"><tspan
          sodipodi:role="line"
          id="tspan7257"
-         style="stroke-width:0.264583"
+         style="stroke-width:0.264583;-inkscape-font-specification:'Iceberg, Normal';font-family:Iceberg;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:7.05555993px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
          x="100.15426"
          y="124.72116">TOVARIN SPACE EXPLORATION AGENCY</tspan></text>
     <g
@@ -582,16 +281,16 @@
       </g>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
          x="135.01094"
          y="82.832222"
          id="text7313"><tspan
            sodipodi:role="line"
            id="tspan7311"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11110068px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="135.01094"
            y="82.832222">TS<tspan
-   style="fill:#ff1d23;fill-opacity:1;stroke:none"
+   style="fill:#ff1d23;fill-opacity:1;stroke:none;-inkscape-font-specification:'Iceberg, Normal';font-family:Iceberg;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:14.11110068px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
    id="tspan7315">EA</tspan></tspan></text>
       <path
          sodipodi:type="star"
@@ -723,14 +422,58 @@
          y="3.2541919" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
-       x="60.760464"
-       y="2.0856955"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+       x="229.92657"
+       y="158.13895"
        id="text15549"><tspan
          sodipodi:role="line"
          id="tspan15547"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Iceland;-inkscape-font-specification:'Iceland, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
-         x="60.760464"
-         y="2.0856955">SYSTEM VERSION v00.01.02</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         x="229.92657"
+         y="158.13895">SYSTEM VERSION v00.01.02</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke-width:0.264583"
+       x="11.703163"
+       y="6.3615441"
+       id="text1041"><tspan
+         sodipodi:role="line"
+         id="tspan1039"
+         style="stroke-width:0.264583;fill:#ffffff"
+         x="11.703163"
+         y="6.3615441" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke-width:0.264583"
+       x="1.011199"
+       y="7.2018023"
+       id="text1097"><tspan
+         sodipodi:role="line"
+         id="tspan1095"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:Iceberg;-inkscape-font-specification:'Iceberg, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         x="1.011199"
+         y="7.2018023">SYSTEM MENU</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke-width:0.446638"
+       id="rect1261"
+       width="23.478638"
+       height="1"
+       x="0.90813148"
+       y="31.342812" />
+    <rect
+       style="fill:#ffffff;stroke-width:0.48824"
+       id="rect1263"
+       width="1"
+       height="14.640792"
+       x="0.89992172"
+       y="17.70126" />
+    <rect
+       style="fill:#ffffff;stroke-width:0.288623"
+       id="rect1265"
+       width="1"
+       height="5.1163268"
+       x="13.15294"
+       y="6.7608957"
+       transform="rotate(45)" />
   </g>
 </svg>

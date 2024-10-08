@@ -16,6 +16,8 @@ int main() {
     int screen_idx = 1; // TODO: move to enum
     bool show_header = true;
 
+    // Begin loading fonts
+
     while(running) {
         SDL_Event event;
         while(SDL_PollEvent(&event)) {

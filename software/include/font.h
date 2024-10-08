@@ -10,7 +10,7 @@
 
 extern std::map<std::string, TTF_Font*> fontMap;
 
-TTF_Font* load_font(const char*, int);
-void close_font(const char*);
+bool load_font(const char*, const char*, int);
+void destroy_font(const char*);
 
 void render_text(const char*, const char*, SDL_Point, SDL_Color);

@@ -5,4 +5,5 @@
 void header_render();
 
 void stby_render();
-void lock_render();
+
+void main_render();
