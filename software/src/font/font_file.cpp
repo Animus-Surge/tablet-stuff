@@ -35,3 +35,25 @@ bool load_font(const char* filename, const char* nickname, int pt_size) {
 
     return true;
 }
+
+TTF_Font* get_font(const char* nick) {
+    std::string nick_as_str(nick);
+
+    if(fontMap.find(nick_as_str) == fontMap.end()) {
+        printf("No font with name '%s'\n", nick);
+        return NULL;
+    }
+
+    return fontMap[nick_as_str];
+}
+
+void destroy_font(const char *nick) {
+    std::string nick_as_str(nick);
+
+    //Case: font <nick> doesn't exist
+    if(fontMap.find(nick_as_str) == fontMap.end()) {
+        return;
+    }
+
+    fontMap.erase(nick_as_str);
+}

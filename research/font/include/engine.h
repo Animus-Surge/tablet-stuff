@@ -13,7 +13,6 @@ extern SDL_Renderer* renderer;
 extern SDL_Window* window;
 
 // Rendering functions
-
 void set_color(int r, int g, int b);
 void set_color(int r, int g, int b, int a);
 void set_color(SDL_Color color);

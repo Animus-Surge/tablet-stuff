@@ -15,7 +15,7 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 # Move resources directory to output directory
-#TODO
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/resources $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 
 # Build mode checks
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -28,5 +28,8 @@ find_package(SDL2_ttf REQUIRED)
 find_package(SDL2_image REQUIRED)
 find_package(X11 REQUIRED)
 
-include_directories(include ${SDL2_INCLUDE_DIRS} ${SDL2_ttf_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_ttf_LIBRARIES})
+message(STATUS "SDL2_ttf as SDL2_TTF_LIBRARY: ${SDL2_TTF_LIBRARY}")
+message(STATUS "SDL2_ttf as SDL2_TTF_LIBRARIES: ${SDL2_TTF_LIBRARIES}")
+
+include_directories(include ${SDL2_INCLUDE_DIRS} ${SDL2_TTF_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_TTF_LIBRARIES})

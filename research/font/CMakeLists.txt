@@ -15,7 +15,6 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 find_package(SDL2 REQUIRED)
-find_package(spdlog REQUIRED)
 
-include_directories(include ${spdlog_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} ${spdlog_LIBRARIES} ${SDL2_LIBRARIES})
+include_directories(include ${SDL2_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})

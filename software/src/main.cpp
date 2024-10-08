@@ -3,6 +3,8 @@
 #include "pda.h"
 #include "rendersys.h"
 
+#include "font.h"
+
 #include "soareds.h"
 
 int main() {
@@ -17,6 +19,10 @@ int main() {
     bool show_header = true;
 
     // Begin loading fonts
+
+    //Font loading stuff, TESTING ONLY
+    bool attempted = false;
+    bool success = true;
 
     while(running) {
         SDL_Event event;
@@ -44,9 +50,18 @@ int main() {
             header_render();
         }
 
+        if(!attempted) {
+            if(!load_font("resources/Iceberg-Regular.ttf", "iceberg-20", 20)) {
+                printf("Failed to load font!\n");
+                success = false;
+            }
+            attempted = true;
+        }
+
+        if(success) {
+            render_text("iceberg-20", "Hello, World!", {100, 100}, {255, 255, 255, 255});
+        }
+
         SDL_RenderPresent(renderer);
-
-
     }
-
 }
