@@ -21,8 +21,19 @@ int main() {
     // Begin loading fonts
 
     //Font loading stuff, TESTING ONLY
-    bool attempted = false;
     bool success = true;
+
+
+    //TODO: variable font size (implement research/font in main)
+    if(!load_font("resources/Iceberg-Regular.ttf", "iceberg-24", 24)) {
+        printf("Failed to load font 'iceberg-24'\n");
+        success = false;
+    }
+
+    if(!load_font("resources/Iceberg-Regular.ttf", "iceberg-20", 20)) {
+        printf("Failed to load font 'iceberg-20'\n");
+        success = false;
+    }
 
     while(running) {
         SDL_Event event;
@@ -50,18 +61,16 @@ int main() {
             header_render();
         }
 
-        if(!attempted) {
-            if(!load_font("resources/Iceberg-Regular.ttf", "iceberg-20", 20)) {
-                printf("Failed to load font!\n");
-                success = false;
-            }
-            attempted = true;
-        }
-
         if(success) {
-            render_text("iceberg-20", "Hello, World!", {100, 100}, {255, 255, 255, 255});
+            render_text("iceberg-24", "SYSTEM MENU", {5, 3}, {255, 255, 255, 255});
+            render_text("iceberg-20", "USS LIGHTWAVE \xB7 NX-108000", {450, 450}, {255, 255, 255, 255});
         }
 
         SDL_RenderPresent(renderer);
     }
+
+    destroy_font("iceberg-24");
+    destroy_font("iceberg-20");
+
+    shutdown();
 }

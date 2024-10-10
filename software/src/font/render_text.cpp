@@ -18,4 +18,5 @@ void render_text(const char *nick, const char *text, SDL_Point pos, SDL_Color co
     SDL_RenderCopy(renderer, text_t, NULL, &text_transform);
 
     SDL_DestroyTexture(text_t);
+    SDL_FreeSurface(text_surf);
 }

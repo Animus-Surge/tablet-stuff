@@ -6,8 +6,10 @@ Entry point
 
 #include <stdio.h>
 
+#include "font.h"
+
 int main() {
-    printf("Hello, World!\n");
+    loadFont("resources/Iceberg-Regular.ttf");
 
     return 0;
 }

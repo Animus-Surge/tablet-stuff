@@ -62,6 +62,5 @@ void fill_ellipse(int x, int y, int rx, int ry);
 void fill_ellipse(SDL_Point point, int rx, int ry);
 
 // Rendering system
-
 void init_render();
 void shutdown();
