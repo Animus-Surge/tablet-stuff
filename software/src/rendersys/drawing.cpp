@@ -1,6 +1,6 @@
 #include "rendersys.h"
 
-#include "algo.h"
+#include <algorithm>
 
 //Colors
 
@@ -124,8 +124,8 @@ void fill_polygon(SDL_Point * points, int num) {
     int miny = points[0].y;
     int maxy = points[0].y;
     for (int i = 1; i < num; i++) {
-        miny = min(miny, points[i].y);
-        maxy = max(maxy, points[i].y);
+        miny = std::min(miny, points[i].y);
+        maxy = std::max(maxy, points[i].y);
     }
 
     //Scanline fill
@@ -137,4 +137,10 @@ void fill_rect(int x, int y, int w, int h) {
 }
 void fill_rect(SDL_Rect rect) {
     SDL_RenderFillRect(renderer, &rect);
+}
+
+//Curves
+
+void draw_bezier(SDL_Point p1, SDL_Point p2, SDL_Point ct) {
+
 }

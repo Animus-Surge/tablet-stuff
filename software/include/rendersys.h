@@ -38,6 +38,9 @@ void draw_rect_thick(SDL_Rect rect, int thickness);
 void draw_polygon(SDL_Point* points, int num);
 void draw_polygon_thick(SDL_Point* points, int num, int thickness);
 
+//Curves
+void draw_bezier(SDL_Point p1, SDL_Point p2, SDL_Point ct);
+
 //Ellipsoids
 void draw_circle(int x, int y, int radius);
 void draw_circle(SDL_Point point, int radius);

@@ -5,6 +5,8 @@
 
 #include "font.h"
 
+#include "animation.h"
+
 #include "soareds.h"
 
 int main() {
@@ -33,6 +35,13 @@ int main() {
     if(!load_font("resources/Iceberg-Regular.ttf", "iceberg-20", 20)) {
         printf("Failed to load font 'iceberg-20'\n");
         success = false;
+    }
+
+    int start = 0;
+    int end = 10;
+
+    for(float i = 0; i <= 1; i+=0.1) {
+	printf("%d\n", linear_interpolate(start, end, i));
     }
 
     while(running) {
