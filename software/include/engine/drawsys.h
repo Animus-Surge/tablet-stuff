@@ -19,12 +19,12 @@ inline void set_draw_color(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
 
 //Basic drawing functions
 void point(SDL_Renderer* renderer, int x, int y);
-void line(SDL_Renderer* renderer, int x1, int y1, int x2, int y2);
-void pline(SDL_Renderer* renderer, SDL_Point* points, int count);
-void rect(SDL_Renderer* renderer, int x, int y, int w, int h);
-void polygon(SDL_Renderer* renderer, SDL_Point* points, int count);
-void circle(SDL_Renderer* renderer, int x, int y, int r);
-void ellipse(SDL_Renderer* renderer, int x, int y, int rx, int ry);
+void line(SDL_Renderer* renderer, int x1, int y1, int x2, int y2, int thickness);
+void pline(SDL_Renderer* renderer, SDL_Point* points, int count, int thickness);
+void rect(SDL_Renderer* renderer, int x, int y, int w, int h, int thickness);
+void polygon(SDL_Renderer* renderer, SDL_Point* points, int count, int thickness);
+void circle(SDL_Renderer* renderer, int x, int y, int r, int thickness);
+void ellipse(SDL_Renderer* renderer, int x, int y, int rx, int ry, int thickness);
 
 //Curves
 void bezier(SDL_Renderer* renderer, SDL_Point start, SDL_Point control1, SDL_Point control2, SDL_Point end, float step);

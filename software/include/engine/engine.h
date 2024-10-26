@@ -11,7 +11,7 @@ private:
     SDL_Window* window;
     SDL_Renderer* renderer;
 
-    bool running;
+    bool running = true;
 
     void init(int width, int height, const char* title);
     void handleEvents();
@@ -24,4 +24,6 @@ public:
     ~Engine();
 
     void run();
+
+    void shutdown();
 };

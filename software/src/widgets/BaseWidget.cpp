@@ -1,4 +1,4 @@
-#include "widget.h"
+#include "objects/widget.h"
 
 /*
 pda widgets/BaseWidget.cpp

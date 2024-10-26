@@ -40,3 +40,44 @@ public:
     virtual void render(SDL_Renderer* renderer) = 0;
     virtual void clean() = 0;
 };
+
+class PointWidget : public BaseWidget {
+private:
+    SDL_Point point = {0, 0}; // Point to render
+public:
+    void set_point(int x, int y) {
+        this->point.x = x;
+        this->point.y = y;
+    }
+
+    void init() override;
+    void event(SDL_Event* event) override;
+    void update() override;
+    void render(SDL_Renderer* renderer) override;
+    void clean() override;
+};
+
+class LineWidget : public BaseWidget {
+private:
+    SDL_Point start = {0, 0}; // Start point of the line
+    SDL_Point end = {0, 0}; // End point of the line
+    int thickness = 1; // Thickness of the line
+public:
+    void set_start(int x, int y) {
+        this->start.x = x;
+        this->start.y = y;
+    }
+    void set_end(int x, int y) {
+        this->end.x = x;
+        this->end.y = y;
+    }
+    void set_thickness(int thickness) {
+        this->thickness = thickness;
+    }
+
+    void init() override;
+    void event(SDL_Event* event) override;
+    void update() override;
+    void render(SDL_Renderer* renderer) override;
+    void clean() override;
+};

@@ -7,7 +7,7 @@ Logging system
 
 #include <stdio.h>
 
-enum LogLevel {
+typedef enum LogLevel {
     DEBUG,
     INFO,
     WARNING,
