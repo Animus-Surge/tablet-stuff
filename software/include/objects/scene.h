@@ -13,7 +13,7 @@
 
 //TODO: implement file loading for scenes
 
-void load_scene(const char* path);
+Scene* load_scene(const char* path);
 
 class Scene {
 protected:
