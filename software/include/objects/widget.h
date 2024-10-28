@@ -8,61 +8,115 @@
 
 #include <SDL2/SDL.h>
 
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
+
+//TODO: BaseWidget: Add position, size, rotation, and visibility properties
+
+//Widget base class
+
 class BaseWidget {
-protected:
-    SDL_Point position = {0, 0}; // Position of the widget
-    float rotation = 0.0; // Rotation of the widget
-    SDL_FPoint scale = {1, 1}; // Scale of the widget
-    SDL_Color color = {255, 255, 255, 255}; // Color of the widget
 public:
+    SDL_Color color = {255, 255, 255, 255}; // Color of the widget
     
-    void set_position(int x, int y) {
-        this->position.x = x;
-        this->position.y = y;
+    bool visible = true; // Visibility of the widget
+
+    //Get if the widget is visible
+    bool is_visible() const {
+        return visible;
     }
-    void set_rotation(float rotation) {
-        this->rotation = rotation;
+    //Set the visibility of the widget
+    void set_visible(bool visible) {
+        this->visible = visible;
     }
-    void set_scale(float x, float y) {
-        this->scale.x = x;
-        this->scale.y = y;
+    //Hide the widget
+    void hide() {
+        this->visible = false;
     }
+    //Show the widget
+    void show() {
+        this->visible = true;
+    }
+    
+    //Get the color of the widget
+    SDL_Color get_color() const {
+        return color;
+    }
+    //Set the color of the widget
     void set_color(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
         this->color.r = r;
         this->color.g = g;
         this->color.b = b;
         this->color.a = a;
     }
+    //Set the color of the widget
+    void set_color(SDL_Color color) {
+        this->color = color;
+    }
 
+    //Initialize the widget
     virtual void init() = 0;
+    //Handle events
     virtual void event(SDL_Event* event) = 0;
+    //Update the widget
     virtual void update() = 0;
+    //Fixed update the widget
+    virtual void fixedUpdate(float dt) = 0;
+    //Render the widget
     virtual void render(SDL_Renderer* renderer) = 0;
+    //Clean the widget
     virtual void clean() = 0;
 };
 
+//Point widget
+
 class PointWidget : public BaseWidget {
-private:
-    SDL_Point point = {0, 0}; // Point to render
 public:
+    SDL_Point m_point = {0, 0}; // Point to render
+    SDL_Point get_point() const {
+        return this->m_point;
+    }
+    void set_point(SDL_Point point) {
+        this->m_point = point;
+    }
     void set_point(int x, int y) {
-        this->point.x = x;
-        this->point.y = y;
+        this->m_point.x = x;
+        this->m_point.y = y;
     }
 
     void init() override;
     void event(SDL_Event* event) override;
     void update() override;
+    void fixedUpdate(float dt) override;
     void render(SDL_Renderer* renderer) override;
     void clean() override;
 };
 
+void to_json(json& j, const PointWidget& p);
+void from_json(const json& j, PointWidget& p);
+
+//Line widget
+
 class LineWidget : public BaseWidget {
-private:
+public:
     SDL_Point start = {0, 0}; // Start point of the line
     SDL_Point end = {0, 0}; // End point of the line
     int thickness = 1; // Thickness of the line
-public:
+    SDL_Point get_start() const {
+        return start;
+    }
+    SDL_Point get_end() const {
+        return end;
+    }
+    int get_thickness() const {
+        return thickness;
+    }
+    void set_start(SDL_Point start) {
+        this->start = start;
+    }
+    void set_end(SDL_Point end) {
+        this->end = end;
+    }
     void set_start(int x, int y) {
         this->start.x = x;
         this->start.y = y;
@@ -78,6 +132,10 @@ public:
     void init() override;
     void event(SDL_Event* event) override;
     void update() override;
+    void fixedUpdate(float dt) override;
     void render(SDL_Renderer* renderer) override;
     void clean() override;
 };
+
+void to_json(json& j, const LineWidget& l);
+void from_json(const json& j, LineWidget& l);

@@ -7,7 +7,9 @@ Logging system
 
 #include <stdio.h>
 
-typedef enum LogLevel {
+#define INVALID_FN_NAME "invalid"
+
+enum LogLevel {
     DEBUG,
     INFO,
     WARNING,

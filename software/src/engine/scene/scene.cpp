@@ -1,33 +1,29 @@
 #include "objects/scene.h"
 
-
-//TODO: implement
-void load_scene(const char* path) {
-}
-
-Scene::handleEvent(SDL_Event* event) {
-    for (auto& widget : widgets) {
+void Scene::handleEvent(SDL_Event* event) {
+    for(auto& [name, widget] : widgets) {
         widget->event(event);
     }
 }
 
-Scene::update() {
-    for (auto& widget : widgets) {
+void Scene::update() {
+    for(auto& [name, widget] : widgets) {
         widget->update();
     }
 }
 
-Scene::render(SDL_Renderer* renderer) {
-    for (auto& widget : widgets) {
-        widget->render(SDL_Renderer* renderer);
+void Scene::fixedUpdate(float dt) {
+    //Do nothing (TODO)
+}
+
+void Scene::render(SDL_Renderer* renderer) {
+    for(auto& [name, widget] : widgets) {
+        widget->render(renderer);
     }
 }
 
-Scene::clean() {
-    for (auto& widget : widgets) {
-        widget->clean();
-        delete widget;
-    }
+void Scene::clean() {
+    widgets.clear(); //TODO: maybe delete widgets first?
 }
 
 

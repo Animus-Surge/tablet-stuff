@@ -14,6 +14,8 @@
 
 #include <ctime>
 #include <cstring>
+#include <memory>
+#include <string>
 
 LogLevel log_level = LogLevel::INFO;
 
@@ -36,42 +38,8 @@ char* _get_current_time() {
  * 
  * @return The name of the calling function
  */
-char* _get_calling_function() {
-    const int backtrace_frames = 10;
-
-    void* callstack[backtrace_frames];
-    int frames = backtrace(callstack, backtrace_frames);
-    char** strs = backtrace_symbols(callstack, frames);
-
-    char* calling_function = (char*)malloc(128);
-
-    if(strs) {
-        for (int i = 0; i < frames; i++) {
-            //Demangle the function name
-            char *mangled_name = strchr(strs[i], '(');
-            if (mangled_name) {
-                mangled_name++;
-                char *end = strchr(mangled_name, '+');
-                if (end) {
-                    *end = '\0';
-                    int status;
-                    char *real_name = abi::__cxa_demangle(mangled_name + 1, 0, 0, &status);
-                    if (status == 0 && real_name) {
-                        snprintf(calling_function, 128, "%s", real_name);
-                        free(real_name);
-                    } else {
-                        snprintf(calling_function, 128, "%s", mangled_name + 1);
-                    }
-                }
-            }
-        }
-    }
-
-    free(strs);
-
-    free(calling_function);
-
-    return "INVALID";
+std::string _get_calling_function() {
+    return INVALID_FN_NAME;
 }
 
 // Logger functions
@@ -98,11 +66,10 @@ void log(LogLevel level, const char* message, ...) {
     va_list args;
     va_start(args, message);
 
-    char* sender = _get_calling_function();
     char* time = _get_current_time();
 
     printf("[%s ", time);
-    printf("%s]", sender);
+    printf("invalid]");
 
     switch(level) {
         case LogLevel::DEBUG:

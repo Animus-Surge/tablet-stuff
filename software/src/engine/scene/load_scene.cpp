@@ -9,7 +9,7 @@ Scene* load_scene(const char* path) {
     std::ifstream file(path);
 
     if(!file.is_open()) {
-        log_error("Failed to open file: %s", path);
+        log(LogLevel::ERROR, "Failed to open file: %s", path);
         return new Scene(); //Return an empty scene
     }
 

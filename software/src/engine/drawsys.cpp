@@ -6,10 +6,10 @@ SDL_Color draw_color = {255, 255, 255, 255};
 
 void point(SDL_Renderer* renderer, int x, int y) {
     SDL_SetRenderDrawColor(renderer, draw_color.r, draw_color.g, draw_color.b, draw_color.a);
-  SDL_RenderDrawPoint(renderer, x, y);
+    SDL_RenderDrawPoint(renderer, x, y);
 }
 
-void line(SDL_Renderer* renderer, int x1, int y1, int x2, int y2) {
+void line(SDL_Renderer* renderer, int x1, int y1, int x2, int y2, int thickness) {
     SDL_SetRenderDrawColor(renderer, draw_color.r, draw_color.g, draw_color.b, draw_color.a);
     SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
 }

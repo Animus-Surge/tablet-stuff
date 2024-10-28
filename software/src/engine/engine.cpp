@@ -12,6 +12,7 @@ Engine::~Engine() {
 void Engine::init(int width, int height, const char* title) {
     log(LogLevel::INFO, "Initializing engine...");
 
+    //Initialization
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
         log(LogLevel::ERROR, "Failed to initialize SDL: %s", SDL_GetError());
         return;
@@ -30,19 +31,17 @@ void Engine::init(int width, int height, const char* title) {
     }
 
     log(LogLevel::INFO, "Engine initialized successfully");
+    
+    //Set the current scene to an empty scene (TODO: splash screen?)
+    this->current_scene = new Scene();
 
     this->running = true;
-
-    //TEMPORARY
-    
-    
-
-    //END TEMPORARY
 }
 
 void Engine::handleEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
+        //System events
         switch (event.type) {
             case SDL_QUIT:
                 this->running = false;
@@ -53,38 +52,59 @@ void Engine::handleEvents() {
                 }
                 break;
         }
+
+        //Pass the event to the current scene, since it's not a system event
+        this->current_scene->handleEvent(&event);
     }
 }
 
 void Engine::update() {
-    //Logic goes here...
+    this->current_scene->update();
+}
+
+void Engine::fixedUpdate(float dt) {
+    this->current_scene->fixedUpdate(dt);
 }
 
 void Engine::render() {
     SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
     SDL_RenderClear(this->renderer);
 
-    //Rendering goes here...
+    this->current_scene->render(this->renderer);
 
     SDL_RenderPresent(this->renderer);
 }
 
 void Engine::run() {
     log(LogLevel::INFO, "Starting!");
+    
+    //Create fixed update timer
+    Uint32 last_time = SDL_GetTicks();
+    Uint32 current_time;
+    float dt;
 
     while (this->running) {
-        handleEvents();
-        update();
-        render();
+        //General update
+        handleEvents(); //Events
+        update(); //Update
+        render(); //Render
+
+        //Fixed update
+        current_time = SDL_GetTicks();
+        dt = (current_time - last_time) / 1000.0f;
+        fixedUpdate(dt);
     }
 }
 
-void Engine::shutdown() {
+void Engine::shutdown() { //TODO: shutdown screen?
     log(LogLevel::INFO, "Stopping!");
     this->running = false;
 }
 
 void Engine::clean() {
+    log(LogLevel::INFO, "Cleaning up engine...");
+    this->current_scene->clean();
+
     SDL_DestroyRenderer(this->renderer);
     SDL_DestroyWindow(this->window);
     SDL_Quit();
