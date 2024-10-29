@@ -14,14 +14,24 @@
 class Scene {
 protected:
     std::map<std::string, BaseWidget*> widgets;
+    std::string name;
 
 public:
+    void set_name(const std::string& name) {
+        this->name = name;
+    }
+    std::string get_name() const {
+        return name;
+    }
+
     void add_widget(const std::string& name, BaseWidget* widget) {
         widgets[name] = widget;
     }
-
     BaseWidget* get_widget(const std::string& name) {
         return widgets[name];
+    }
+    void remove_widget(const std::string& name) {
+        widgets.erase(name);
     }
 
     //Event handling

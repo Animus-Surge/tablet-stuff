@@ -1,33 +1,47 @@
 #include "engine/engine.h"
 #include "util/logger.h"
 
+#include "objects/scene.h"
+
+#include <SDL2/SDL_ttf.h>
+
 Engine::Engine(int width, int height, const char* title) {
-    init(width, height, title);
+    if(!init(width, height, title)) {
+        log(LogLevel::ERROR, "Failed to initialize engine");
+        clean();
+        exit(EXIT_FAILURE);
+    }
 }
 
 Engine::~Engine() {
     clean();
 }
 
-void Engine::init(int width, int height, const char* title) {
+int Engine::init(int width, int height, const char* title) {
     log(LogLevel::INFO, "Initializing engine...");
 
     //Initialization
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
         log(LogLevel::ERROR, "Failed to initialize SDL: %s", SDL_GetError());
-        return;
+        return 0;
+    }
+
+    //Initialize TTF
+    if (TTF_Init() != 0) {
+        log(LogLevel::ERROR, "Failed to initialize TTF: %s", TTF_GetError());
+        return 0;
     }
 
     this->window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0);
     if (this->window == nullptr) {
         log(LogLevel::ERROR, "Failed to initialize and create window: %s", SDL_GetError());
-        return;
+        return 0;
     }
 
     this->renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if (this->renderer == nullptr) {
         log(LogLevel::ERROR, "Failed to initialize and create renderer: %s", SDL_GetError());
-        return;
+        return 0;
     }
 
     log(LogLevel::INFO, "Engine initialized successfully");
@@ -36,6 +50,8 @@ void Engine::init(int width, int height, const char* title) {
     this->current_scene = new Scene();
 
     this->running = true;
+
+    return 1;
 }
 
 void Engine::handleEvents() {
@@ -49,6 +65,12 @@ void Engine::handleEvents() {
             case SDL_KEYDOWN:
                 if (event.key.keysym.sym == SDLK_ESCAPE) {
                     this->running = false;
+                } else if (event.key.keysym.sym == SDLK_F1) {
+                    log(LogLevel::INFO, "Refreshing scene...");
+                    this->current_scene->clean();
+
+                    //Reload the current scene
+                    this->set_scene("resources/test_scene.json");
                 }
                 break;
         }
@@ -108,4 +130,8 @@ void Engine::clean() {
     SDL_DestroyRenderer(this->renderer);
     SDL_DestroyWindow(this->window);
     SDL_Quit();
+}
+
+void Engine::set_scene(const char* path) {
+    this->current_scene = load_scene(path);
 }

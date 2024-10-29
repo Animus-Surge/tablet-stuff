@@ -1,0 +1,61 @@
+{
+    "scene_name":"test_scene",
+    "widgets": [
+        {
+            "name": "test_widget_1",
+            "type":"point",
+            "color":{ "r":255, "g":0, "b":0, "a":255 },
+            "point":{ "x":10, "y":10 }
+        },
+        {
+            "name": "test_widget_2",
+            "type":"line",
+            "color":{ "r":255, "g":0, "b":255, "a":255 },
+            "start":{ "x":20, "y":10 },
+            "end":{ "x":110, "y":100 },
+            "thickness":1
+        },
+        {
+            "name": "test_label",
+            "type":"text",
+            "color":{ "r":255, "g":255, "b":255, "a":255 },
+            "position":{ "x":10, "y":100 },
+            "text":"Hello World",
+            "font":{
+                "path":"resources/Iceberg-Regular.ttf",
+                "size":20
+            }
+        }
+    ],
+    "animator": {
+        "active":true,
+        "default_track":"test_widget_1_blink",
+        "tracks":[
+            {
+                "name":"test_widget_1_blink",
+                "duration":1,
+                "loop":true,
+                "keyframes":[
+                    {
+                        "time":0,
+                        "object":"test_widget_1",
+                        "property":"visible",
+                        "value":true
+                    },
+                    {
+                        "time":0.5,
+                        "object":"test_widget_1",
+                        "property":"visible",
+                        "value":false
+                    },
+                    {
+                        "time":1,
+                        "object":"test_widget_1",
+                        "property":"visible",
+                        "value":true
+                    }
+                ]
+            }
+        ]
+    }
+}

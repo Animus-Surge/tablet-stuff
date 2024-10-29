@@ -16,8 +16,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-# Move resources directory to output directory
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/resources $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources)
+# Symlink resources directory to output directory
+add_custom_command(
+    TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND rm -rf $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources
+    COMMAND ${CMAKE_COMMAND} -E create_symlink
+    ${CMAKE_SOURCE_DIR}/resources
+    $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources
+)
 
 # Build mode checks
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")

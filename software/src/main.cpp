@@ -96,6 +96,10 @@ int main() {
 
     //Engine setup
     engine = new Engine(1024, 600, "SOAREDS window");
+
+    
+
+    engine->set_scene("resources/test_scene.json");
     engine->run();
 
     //Cleanup
