@@ -12,6 +12,9 @@ using json = nlohmann::json;
 
 #define ARRLEN(x) sizeof(x) / sizeof(x[0])
 
+//Conversion functions
+
+void hex_to_rgb(const char* hex, SDL_Color* color);
 
 //JSON serialization for SDL datatypes
 
