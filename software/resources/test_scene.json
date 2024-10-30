@@ -2,30 +2,20 @@
     "scene_name":"test_scene",
     "widgets": [
         {
-            "name": "test_widget_1",
-            "type":"point",
-            "color":{ "r":255, "g":0, "b":0, "a":255 },
-            "point":{ "x":10, "y":10 }
-        },
-        {
-            "name": "test_widget_2",
-            "type":"line",
-            "color":{ "r":255, "g":0, "b":255, "a":255 },
-            "start":{ "x":20, "y":10 },
-            "end":{ "x":110, "y":100 },
-            "thickness":1
-        },
-        {
-            "name": "test_label",
-            "type":"text",
-            "color":{ "r":255, "g":255, "b":255, "a":255 },
-            "position":{ "x":10, "y":100 },
-            "text":"Hello World",
-            "font":{
-                "path":"resources/Iceberg-Regular.ttf",
-                "size":20
-            }
+            "type":"polyline",
+            "name":"test_polyline",
+            "connect":true,
+            "color": { "r":255, "g":255, "b":255, "a":255 },
+            "thickness":1,
+            "point_ct":4,
+            "points":[
+                { "x":10, "y":10 },
+                { "x":100, "y":10 },
+                { "x":100, "y":100 },
+                { "x":10, "y":100 }
+            ]
         }
+
     ],
     "animator": {
         "active":true,

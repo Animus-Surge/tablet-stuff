@@ -32,7 +32,7 @@ Scene* load_scene(const char* path) {
     for(auto& widget : j["widgets"]) {
         std::string type = widget["type"];
 
-        if (type == "point") {\
+        if (type == "point") {
             PointWidget* point = new PointWidget();
             
             point->set_color(widget["color"]["r"], widget["color"]["g"], widget["color"]["b"], widget["color"]["a"]);
@@ -50,7 +50,21 @@ Scene* load_scene(const char* path) {
 
             scene->add_widget(widget["name"], line);
         }
+        else if(type == "polyline") {
+            PolylineWidget* polyline = new PolylineWidget();
 
+            polyline->set_color(widget["color"]["r"], widget["color"]["g"], widget["color"]["b"], widget["color"]["a"]);
+            
+            polyline->set_connect(widget["connect"]);
+            polyline->set_thickness(widget["thickness"]);
+
+            for(int i = 0; i < widget["point_ct"]; i++) {
+                polyline->add_point({widget["points"][i]["x"], widget["points"][i]["y"]});
+            }
+
+            scene->add_widget(widget["name"], polyline);
+        }
+            
         else if(type == "text") {
             TextWidget* text = new TextWidget();
 

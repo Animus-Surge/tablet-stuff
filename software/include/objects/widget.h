@@ -8,6 +8,8 @@
 
 #include <SDL2/SDL.h>
 
+#include <vector>
+
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
@@ -139,3 +141,184 @@ public:
 
 void to_json(json& j, const LineWidget& l);
 void from_json(const json& j, LineWidget& l);
+
+class PolylineWidget : public BaseWidget {
+private:
+    std::vector<SDL_Point> points;
+    int thickness;
+    bool connect = false;
+    bool fill = false;
+
+public:
+    void set_points(SDL_Point* points, int num);
+    void add_point(SDL_Point point);
+    void add_point_at(SDL_Point point, int pos);
+
+    void set_connect(bool do_connect) {
+        this->connect = do_connect;
+    }
+    bool get_connect() const {
+        return this->connect;
+    }
+
+    void set_fill(bool fill) {
+        this->fill = fill;
+    }
+    bool get_fill() const {
+        return this->fill;
+    }
+
+    void set_thickness(int thickness) {
+        this->thickness = thickness;
+    }
+    int get_thickness() const {
+        return this->thickness;
+    }
+    
+    int num_points() {
+        return this->points.size();
+    }
+
+    void init() override;
+    void event(SDL_Event* event) override;
+    void update() override;
+    void fixedUpdate(float dt) override;
+    void render(SDL_Renderer* renderer) override;
+    void clean() override;
+};
+
+void to_json(json& j, const PolylineWidget& p);
+void from_json(const json& j, PolylineWidget& p);
+
+class RectangleWidget : BaseWidget {
+private:
+    SDL_Rect p_rect;
+    bool fill = false;
+    int thickness;
+    SDL_Color fill_color;
+
+public:
+    void set_rect(SDL_Rect rect) {
+        this->p_rect = rect;
+    }
+    void set_rect(int x, int y, int w, int h) {
+        this->p_rect = {x, y, w, h};
+    }
+    SDL_Rect get_rect() {
+        return this->p_rect;
+    }
+
+    void set_fill_color(SDL_Color color) {
+        this->color = color;
+    }
+    void set_fill_color(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
+        this->color = {r, g, b, a};
+    }
+    SDL_Color get_fill_color() const {
+        return this->fill_color;
+    }
+
+    void set_fill(bool fill) {
+        this->fill = fill;
+    }
+    bool get_fill() const {
+        return this->fill;
+    }
+
+    void set_thickness(int thickness) {
+        this->thickness = thickness;
+    }
+    int get_thickness() const {
+        return this->thickness;
+    }
+
+    void init() override;
+    void event(SDL_Event* event) override;
+    void update() override;
+    void fixedUpdate(float dt) override;
+    void render(SDL_Renderer* renderer) override;
+    void clean() override;
+};
+
+void to_json(json& j, const RectangleWidget& r);
+void from_json(const json& j, RectangleWidget& r);
+
+class CircleWidget : BaseWidget {
+private:
+    SDL_Point position;
+    int radius = 0;
+    int thickness = 1;
+    bool fill = false;
+
+public:
+    void set_radius(int radius) {
+        this->radius = radius;
+    }
+    int get_radius() const {
+        return this->radius;
+    }
+
+    void set_thickness(int thickness) {
+        this->thickness = thickness;
+    }
+    int get_thickness() const {
+        return this->thickness;
+    }
+
+    void set_fill(bool fill) {
+        this->fill = fill;
+    }
+    bool get_fill() const {
+        return this->fill;
+    }
+
+    void init() override;
+    void event(SDL_Event* event) override;
+    void update() override;
+    void fixedUpdate(float dt) override;
+    void render(SDL_Renderer* renderer) override;
+    void clean() override;
+};
+
+void to_json(json& j, const CircleWidget& c);
+void from_json(const json& j, CircleWidget& c);
+
+class EllipseWidget : BaseWidget {
+private:
+    SDL_Point position;
+    int rx;
+    int ry;
+    int thickness;
+    bool fill = false;
+
+public:
+    void set_position(SDL_Point pos) {
+        this->position = pos;
+    }
+    void set_position(int x, int y) {
+        this->position = {x, y};
+    }
+    SDL_Point get_position() const {
+        return this->position;
+    }
+
+    void set_rx(int rx) {
+        this->rx = rx;
+    }
+    void set_ry(int ry) {
+        this->ry = ry;
+    }
+    void set_thickness(int thickness) {
+        this->thickness = thickness;
+    }
+
+    void init() override;
+    void event(SDL_Event* event) override;
+    void update() override;
+    void fixedUpdate(float dt) override;
+    void render(SDL_Renderer* renderer) override;
+    void clean() override;
+};
+
+void to_json(json& j, const EllipseWidget& e);
+void from_json(const json& j, EllipseWidget& e);
