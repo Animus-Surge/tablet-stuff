@@ -13,11 +13,14 @@ using json = nlohmann::json;
 #define ARRLEN(x) sizeof(x) / sizeof(x[0])
 
 //Conversion functions
-
 void hex_to_rgb(const char* hex, SDL_Color* color);
 
-//JSON serialization for SDL datatypes
+//Validation functions
+bool contains_key(const json& j, const std::string& key);
+bool contains_keys(const json& j, const std::vector<std::string>& keys);
 
+
+//JSON serialization for SDL datatypes
 void to_json(json& j, const SDL_Point& p);
 void from_json(const json& j, SDL_Point& p);
 

@@ -97,9 +97,8 @@ int main() {
     //Engine setup
     engine = new Engine(1024, 600, "SOAREDS window");
 
-    
-
-    engine->set_scene("resources/test_scene.json");
+    //TODO: scene loading from theme file, or from command line argument
+    engine->set_scene("resources/soareds/scenes/home.json");
     engine->run();
 
     //Cleanup
