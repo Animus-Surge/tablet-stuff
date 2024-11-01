@@ -2,18 +2,12 @@
     "scene_name":"test_scene",
     "widgets": [
         {
-            "type":"polyline",
-            "name":"test_polyline",
-            "connect":true,
-            "color": { "r":255, "g":255, "b":255, "a":255 },
-            "thickness":1,
-            "point_ct":4,
-            "points":[
-                { "x":10, "y":10 },
-                { "x":100, "y":10 },
-                { "x":100, "y":100 },
-                { "x":10, "y":100 }
-            ]
+            "type":"line",
+            "name":"test_widget_1",
+            "color":"#ffff00",
+            "start":{"x":0,"y":0},
+            "end":{"x":100,"y":100},
+            "thickness":1
         }
 
     ],

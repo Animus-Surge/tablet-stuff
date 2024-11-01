@@ -22,8 +22,23 @@ void to_json(json& j, const SDL_Color& c) {
     j = json{{"r", c.r}, {"g", c.g}, {"b", c.b}, {"a", c.a}};
 }
 void from_json(const json& j, SDL_Color& c) {
+
+    //RGB
+    if(j.find("r") == j.end() || j.find("g") == j.end() || j.find("b") == j.end()) {
+        log(LogLevel::ERROR, "Color missing required fields: {r, g, b}");
+        return;
+    }
+
     j.at("r").get_to(c.r);
     j.at("g").get_to(c.g);
     j.at("b").get_to(c.b);
-    j.at("a").get_to(c.a);
+
+    //Alpha
+    if(j.find("a") == j.end()) {
+        c.a = 255;
+    } else {
+        j.at("a").get_to(c.a);
+    }
+
+    
 }

@@ -1,0 +1,18 @@
+{
+    "theme_name":"soareds",
+    "background":"#000000",
+    "system_scenes": {
+        "login": "soareds/scenes/login.json",
+        "suspend": "soareds/scenes/suspend.json",
+        "home":"soareds/scenes/home.json",
+        "settings":"soareds/scenes/settings.json"
+    }, 
+    "widget_themes":{
+        "keyboard":"soareds/widget/keyboard.json",
+        "app_menu":"soareds/widget/appmenu.json"
+    },
+    "builtins":{
+        "applications":[
+        ]
+    }
+}
