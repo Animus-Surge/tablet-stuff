@@ -5,6 +5,16 @@
 
 #include <SDL2/SDL_ttf.h>
 
+void Engine::reload_scene() {
+    if(this->current_scene_path == "pda::builtin") {
+        log(LogLevel::ERROR, "Cannot reload builtin scene");
+        return;
+    }
+
+    this->current_scene->clean();
+    this->current_scene = load_scene(this->current_scene_path.c_str());
+}
+
 Engine::Engine(int width, int height, const char* title) {
     if(!init(width, height, title)) {
         log(LogLevel::ERROR, "Failed to initialize engine");

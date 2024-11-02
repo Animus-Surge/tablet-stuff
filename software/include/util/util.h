@@ -7,13 +7,15 @@ Utility functions and structs
 
 #include <SDL2/SDL.h>
 
+#include <string>
+
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
 #define ARRLEN(x) sizeof(x) / sizeof(x[0])
 
 //Conversion functions
-void hex_to_rgb(const char* hex, SDL_Color* color);
+void hex_to_rgb(std::string hex, SDL_Color* color);
 
 //Validation functions
 bool contains_key(const json& j, const std::string& key);

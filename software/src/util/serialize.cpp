@@ -1,4 +1,5 @@
 #include "util/util.h"
+#include "util/logger.h"
 
 void to_json(json& j, const SDL_Point& p) {
     j = json{{"x", p.x}, {"y", p.y}};

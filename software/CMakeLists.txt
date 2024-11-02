@@ -51,6 +51,26 @@ else()
     add_dependencies(${PROJECT_NAME} nlohmann_json)
 endif()
 
+# LuaJIT
+ExternalProject_Add(
+    luajit
+    PREFIX ${CMAKE_BINARY_DIR}/external
+    GIT_REPOSITORY "https://github.com/LuaJIT/LuaJIT.git"
+    GIT_TAG "v2.1"
+    UPDATE_COMMAND ""
+    BUILD_IN_SOURCE ON
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND make
+    INSTALL_COMMAND ""
+)
+
+ExternalProject_Get_Property(luajit BINARY_DIR SOURCE_DIR)
+
+set(LUAJIT_LIBRARIES ${BINARY_DIR}/src/libluajit.a)
+set(LUAJIT_INCLUDE_DIRS ${SOURCE_DIR}/src)
+
+add_dependencies(${PROJECT_NAME} luajit)
+
 set(NLOHMANN_JSON_INCLUDE_DIRS ${CMAKE_BINARY_DIR}/external/include)
 
 # Distro package manager libs
@@ -59,10 +79,6 @@ find_package(SDL2_ttf REQUIRED)
 find_package(SDL2_image REQUIRED)
 find_package(X11 REQUIRED)
 find_package(CURL REQUIRED)
-
-# SDL2 status messages
-message(STATUS "SDL2_ttf as SDL2_TTF_LIBRARY: ${SDL2_TTF_LIBRARY}")
-message(STATUS "SDL2_ttf as SDL2_TTF_LIBRARIES: ${SDL2_TTF_LIBRARIES}")
 
 # Include directories
 include_directories(
@@ -73,6 +89,7 @@ include_directories(
     ${X11_INCLUDE_DIRS} 
     ${CURL_INCLUDE_DIRS}
     ${NLOHMANN_JSON_INCLUDE_DIRS}
+    ${LUAJIT_INCLUDE_DIRS}
 )
 
 # Link libraries
@@ -83,4 +100,5 @@ target_link_libraries(
     PRIVATE ${SDL2_IMAGE_LIBRARIES} 
     PRIVATE ${X11_LIBRARIES} 
     PRIVATE ${CURL_LIBRARIES}
+    PRIVATE ${LUAJIT_LIBRARIES}
 )

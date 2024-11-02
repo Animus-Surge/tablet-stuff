@@ -16,6 +16,7 @@ private:
     bool running = true;
 
     Scene* current_scene;
+    std::string current_scene_path;
 
     //Initialize the engine, create the window and renderer
     int init(int width, int height, const char* title);
@@ -42,10 +43,12 @@ public:
     //Set the engine's current scene to a scene object
     void set_scene(Scene* scene) {
         this->current_scene = scene;
+        this->current_scene_path = "pda::builtin";
     }
 
     //Set the engine's current scene to a scene file
     void set_scene(const char* path);
+    void reload_scene(); //THIS WON'T WORK WITH pda::builtin
 
     //Run the engine
     void run();

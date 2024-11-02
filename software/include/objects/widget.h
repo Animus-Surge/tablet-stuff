@@ -8,6 +8,8 @@
 
 #include <SDL2/SDL.h>
 
+#include <lua.hpp>
+
 #include <vector>
 
 #include <nlohmann/json.hpp>
@@ -22,6 +24,9 @@ public:
     SDL_Color color = {255, 255, 255, 255}; // Color of the widget
     
     bool visible = true; // Visibility of the widget
+    
+    lua_State* luastate;
+    std::string script_path = "";
 
     //Get if the widget is visible
     bool is_visible() const {
@@ -148,6 +153,7 @@ private:
     int thickness;
     bool connect = false;
     bool fill = false;
+    SDL_Color fill_color;
 
 public:
     void set_points(SDL_Point* points, int num);
@@ -166,6 +172,13 @@ public:
     }
     bool get_fill() const {
         return this->fill;
+    }
+
+    void set_fill_color(SDL_Color color) {
+        this->fill_color = color;
+    }
+    SDL_Color get_fill_color() const {
+        return this->fill_color;
     }
 
     void set_thickness(int thickness) {
@@ -190,7 +203,7 @@ public:
 void to_json(json& j, const PolylineWidget& p);
 void from_json(const json& j, PolylineWidget& p);
 
-class RectangleWidget : BaseWidget {
+class RectangleWidget : public BaseWidget {
 private:
     SDL_Rect p_rect;
     bool fill = false;
@@ -243,14 +256,22 @@ public:
 void to_json(json& j, const RectangleWidget& r);
 void from_json(const json& j, RectangleWidget& r);
 
-class CircleWidget : BaseWidget {
+class CircleWidget : public BaseWidget {
 private:
     SDL_Point position;
     int radius = 0;
     int thickness = 1;
     bool fill = false;
+    SDL_Color fill_color;
 
 public:
+    void set_position(SDL_Point point) {
+        this->position = point;
+    }
+    SDL_Point get_position() const {
+        return this->position;
+    }
+
     void set_radius(int radius) {
         this->radius = radius;
     }
@@ -272,6 +293,13 @@ public:
         return this->fill;
     }
 
+    void set_fill_color(SDL_Color color) {
+        this->fill_color = color;
+    }
+    SDL_Color get_fill_color() const {
+        return this->fill_color;
+    }
+
     void init() override;
     void event(SDL_Event* event) override;
     void update() override;
@@ -283,13 +311,14 @@ public:
 void to_json(json& j, const CircleWidget& c);
 void from_json(const json& j, CircleWidget& c);
 
-class EllipseWidget : BaseWidget {
+class EllipseWidget : public BaseWidget {
 private:
     SDL_Point position;
     int rx;
     int ry;
     int thickness;
     bool fill = false;
+    SDL_Color fill_color;
 
 public:
     void set_position(SDL_Point pos) {
@@ -310,6 +339,20 @@ public:
     }
     void set_thickness(int thickness) {
         this->thickness = thickness;
+    }
+
+    void set_fill(bool fill) {
+        this->fill = fill;
+    }
+    bool get_fill() const {
+        return this->fill;
+    }
+
+    void set_fill_color(SDL_Color color) {
+        this->fill_color = color;
+    }
+    SDL_Color get_fill_color() const {
+        return this->fill_color;
     }
 
     void init() override;

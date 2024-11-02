@@ -15,6 +15,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include <sys/inotify.h>
+
 Engine* engine;
 
 //Signal handler
@@ -98,7 +100,7 @@ int main() {
     engine = new Engine(1024, 600, "SOAREDS window");
 
     //TODO: scene loading from theme file, or from command line argument
-    engine->set_scene("resources/soareds/scenes/home.json");
+    engine->set_scene("resources/test_scene.json");
     engine->run();
 
     //Cleanup

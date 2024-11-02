@@ -1,16 +1,24 @@
 #include "util/util.h"
+#include "util/logger.h"
 
-void hex_to_rgb(const char* hex_str, SDL_Color* color) {
-    //Check if the string is valid
-    if(hex_str[0] != '#') {
-        return;
+#include <string>
+
+#include <SDL2/SDL.h>
+
+void hex_to_rgb(std::string hex_str, SDL_Color* color) {
+    //Possible formats: #RRGGBB, #RRGGBBAA
+    if(hex_str[0] == '#') {
+        hex_str = hex_str.substr(1);
     }
 
-    //Check format
-    if(strlen(hex_str) == 7) { //#RRGGBB
-        sscanf(hex_str, "#%02x%02x%02x", &color->r, &color->g, &color->b);
+    if(hex_str.length() == 6) {
+        sscanf(hex_str.c_str(), "%02x%02x%02x", &color->r, &color->g, &color->b);
         color->a = 255;
-    } else if(strlen(hex_str) == 9) { //#RRGGBBAA
-        sscanf(hex_str, "#%02x%02x%02x%02x", &color->r, &color->g, &color->b, &color->a);
+    }
+    else if(hex_str.length() == 8) {
+        sscanf(hex_str.c_str(), "%02x%02x%02x%02x", &color->r, &color->g, &color->b, &color->a);
+    }
+    else {
+        log(LogLevel::ERROR, "Invalid hex string: %s", hex_str.c_str());
     }
 }
