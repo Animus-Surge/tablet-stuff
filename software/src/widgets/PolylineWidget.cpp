@@ -20,6 +20,7 @@ void PolylineWidget::event(SDL_Event* event) {}
 void PolylineWidget::update() {}
 void PolylineWidget::fixedUpdate(float dt) {}
 void PolylineWidget::render(SDL_Renderer* renderer) {
+    set_draw_color(this->color);
     if(this->connect) {
         polygon(renderer, this->points.data(), this->points.size(), this->thickness);
     } else {

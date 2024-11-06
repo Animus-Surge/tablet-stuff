@@ -5,16 +5,20 @@
  */
 
 #include "objects/widget.h"
+#include "objects/animation.h"
 
 #include <SDL2/SDL.h>
 
 #include <map>
 #include <string>
+#include <vector>
 
 class Scene {
 protected:
     std::map<std::string, BaseWidget*> widgets;
     std::string name;
+
+    std::vector<AnimationTrack*> animations;
 
 public:
     void set_name(const std::string& name) {

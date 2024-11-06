@@ -10,40 +10,11 @@
                 { "x":200, "y":50 },
                 { "x":250, "y":0 }
             ],
-            "color":"#00ffff",
+            "color":"#ff0000",
             "connect":false
         }
 
     ],
     "animator": {
-        "active":true,
-        "default_track":"test_widget_1_blink",
-        "tracks":[
-            {
-                "name":"test_widget_1_blink",
-                "duration":1,
-                "loop":true,
-                "keyframes":[
-                    {
-                        "time":0,
-                        "object":"test_widget_1",
-                        "property":"visible",
-                        "value":true
-                    },
-                    {
-                        "time":0.5,
-                        "object":"test_widget_1",
-                        "property":"visible",
-                        "value":false
-                    },
-                    {
-                        "time":1,
-                        "object":"test_widget_1",
-                        "property":"visible",
-                        "value":true
-                    }
-                ]
-            }
-        ]
     }
 }

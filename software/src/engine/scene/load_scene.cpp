@@ -112,6 +112,10 @@ Scene* load_scene(const char* path) {
             }
             polylinewidget->set_color(color);
 
+            log(LogLevel::INFO, "color-r: %d", color.r);
+            log(LogLevel::INFO, "color-g: %d", color.g);
+            log(LogLevel::INFO, "color-b: %d", color.b);
+
             polylinewidget->set_connect(widget["connect"]);
 
             for(auto& point : widget["points"]) {

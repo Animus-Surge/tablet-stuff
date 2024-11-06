@@ -16,6 +16,9 @@ inline void set_draw_color(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
     draw_color.b = b;
     draw_color.a = a;
 }
+inline void set_draw_color(SDL_Color color) {
+    draw_color = color;
+}
 
 //Basic drawing functions
 void point(SDL_Renderer* renderer, int x, int y);
