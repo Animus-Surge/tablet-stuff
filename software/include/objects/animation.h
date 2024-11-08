@@ -89,22 +89,6 @@ T lerp(T a, T b, float t) {
     return a + (b - a) * t;
 }
 
-// Easing functions
-template <typename T>
-T easeInQuad(T a, T b, float t) {
-    return lerp(a, b, t * t);
-}
-
-template <typename T>
-T easeOutQuad(T a, T b, float t) {
-    return lerp(a, b, 1 - (1 - t) * (1 - t));
-}
-
-template <typename T>
-T easeInOutQuad(T a, T b, float t) {
-    return lerp(a, b, t < 0.5 ? 2 * t * t : 1 - pow(-2 * t + 2, 2) / 2);
-}
-
 // Serialization
 void to_json(json& j, const Keyframe& keyframe);
 void from_json(const json& j, Keyframe& keyframe);

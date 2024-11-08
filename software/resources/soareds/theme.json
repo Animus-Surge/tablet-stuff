@@ -1,6 +1,15 @@
 {
     "theme_name":"soareds",
     "background":"#000000",
+    "color_schemes": {
+        "default": {
+            "primary":"#A1E44D",
+            "secondary":"#613A3A",
+            "tertiary":"#7AFDD6",
+            "accent_1":"#77FF94",
+            "accent_2":"#60993E"
+        }
+    },
     "system_scenes": {
         "login": "soareds/scenes/login.json",
         "suspend": "soareds/scenes/suspend.json",

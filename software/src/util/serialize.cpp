@@ -1,6 +1,27 @@
 #include "util/util.h"
 #include "util/logger.h"
 
+#include "objects/animation.h"
+
+void to_json(json& j, const Keyframe& k) {
+    j = json{{"time", k.time}, {"value", k.value}};
+}
+
+void from_json(const json& j, Keyframe& k) {
+    j.at("time").get_to(k.time);
+    j.at("value").get_to(k.value);
+}
+
+void to_json(json& j, const AnimationTrack& a) {
+    j = json{{"duration", a.duration}, {"loop", a.loop}, {"keyframes", a.keyframes}};
+}
+
+void from_json(const json& j, AnimationTrack& a) {
+    j.at("duration").get_to(a.duration);
+    j.at("loop").get_to(a.loop);
+    j.at("keyframes").get_to(a.keyframes);
+}
+
 void to_json(json& j, const SDL_Point& p) {
     j = json{{"x", p.x}, {"y", p.y}};
 }
